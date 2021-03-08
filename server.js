@@ -11,10 +11,10 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Middleware
-app.use(cors({
-    origin: ["https://guarded-brook-67536.herokuapp.com"],
-    credentials: true,
-}));
+// app.use(cors({
+//     origin: ["https://guarded-brook-67536.herokuapp.com"],
+//     credentials: true,
+// }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
