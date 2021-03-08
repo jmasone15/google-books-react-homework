@@ -21,8 +21,7 @@ app.use(cors({
 
 // DB connection
 mongoose.connect(
-    "mongodb + srv://jmasone15:1ohzfekeKnELuH41@cluster0.ppcme.mongodb.net/googleBooksUsers?retryWrites=true&w=majority",
-    // process.env.MONGODB_URI || 'mongodb://localhost/googleBooksUsers',
+    process.env.MONGODB_URI || 'mongodb://localhost/googleBooksUsers',
     {
         useNewUrlParser: true,
         useUnifiedTopology: true,
