@@ -1,5 +1,5 @@
 {
-    "name": "google-books-search",
+    "name": "google-books-searches",
     "version": "1.0.0",
     "engines": {
         "node": "14.15.1"
