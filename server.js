@@ -11,13 +11,14 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Middleware
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(cors({
-    origin: ["https://guarded-brook-67536.herokuapp.com"],
-    credentials: true,
-}));
+// app.use(cors({
+//     origin: ["https://guarded-brook-67536.herokuapp.com"],
+//     credentials: true,
+// }));
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
