@@ -13,7 +13,7 @@ function AuthContextProvider(props) {
     }
 
     useEffect(() => {
-        // getLoggedIn();
+        getLoggedIn();
     }, []);
     return (
         <AuthContext.Provider value={{ loggedIn, getLoggedIn }}>
