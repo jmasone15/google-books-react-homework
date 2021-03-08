@@ -19,6 +19,11 @@ app.use(cors({
     credentials: true,
 }));
 
+// Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static("client/build"));
+}
+
 // DB connection
 mongoose.connect(
     process.env.MONGODB_URI || 'mongodb://localhost/googleBooksUsers',
@@ -36,11 +41,6 @@ app.use("/api", require("./routers/bookRoutes"));
 app.get("*", function (req, res) {
     res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
-
-// Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
-    app.use(express.static("client/build"));
-}
 
 // Start server
 app.listen(PORT, () => console.log(`Server is running on port: ${PORT}`));
