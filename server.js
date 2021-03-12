@@ -14,11 +14,6 @@ const PORT = process.env.PORT || 3001;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "https://guarded-brook-67536.herokuapp.com"); // update to match the domain you will make the request from
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
 // app.use(cors({
 //     origin: ["https://guarded-brook-67536.herokuapp.com"],
 //     credentials: true,
@@ -43,9 +38,9 @@ mongoose.connect(
 // Routes
 app.use("/user", require("./routers/userRoutes"));
 app.use("/api", require("./routers/bookRoutes"));
-app.get("*", function (req, res) {
-    res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
+// app.get("*", function (req, res) {
+//     res.sendFile(path.join(__dirname, "./client/build/index.html"));
+// });
 
 // Start server
 app.listen(PORT, () => console.log(`Server is running on port: ${PORT}`));
